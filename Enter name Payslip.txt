@@ -1,0 +1,31 @@
+Pay Slip
+
+ ==================== 
+
+Employer Name: iTec-Ming-Ming corp.
+Name: Enter name
+Department: sales
+
+ -------------------- 
+
+Date of Pay: Monday, February 24, 2020
+Week Number: 1
+Hours Worked: 1000
+
+ -------------------- 
+
+Gross Pay: ₱56000
+Deductions: ₱11200
+Net Pay: ₱44800
+
+ ==================== 
+
+This Serves as Official Payslip for Enter name
+Date of Payment: 2/24/2020
+Date Printed: Monday, February 24, 2020
+
+ ==================== 
+
+
+
+https://www.c-sharpcorner.com/blogs/crud-operation-in-c-sharp-application
