@@ -31,6 +31,11 @@ namespace Payroll
 
         readonly int Pay = 537;
         int initialpay;
+        int totweekhour;
+        int latefee;
+        double deduc;
+        double OTrate;
+        double totOT;
         string directory;
         int grosspay;
         double finalpay;
@@ -40,7 +45,8 @@ namespace Payroll
         string empid;
         string employeename;
         string department;
-
+        int week;
+        int lates;
 
         private void ExitButton_Click(object sender, EventArgs e)
         {
@@ -66,15 +72,26 @@ namespace Payroll
 
         private void CalcButton_Click(object sender, EventArgs e)
         {
+            hours = (int)HoursWorked.Value;
+            week = (int)WeekChooser.Value;
+            lates = (int)latechooser.Value;
             EmptyError.Hide();
             EmptyError1.Hide();
-            hours = (int)HoursWorked.Value;
-            initialpay = Pay / 8;
-            grosspay = hours * initialpay;
+            totweekhour = (int)WeekChooser.Value * 40;
+            latefee = Pay / 60 * (int)latechooser.Value;
+            OTrate = Pay * 0.25;
+            totOT = OTrate / 60 * hours;
+            grosspay = Pay * totweekhour;
             GrossPayText.Text = "₱" + grosspay.ToString();
-            finalpay = grosspay * 0.80;
-            DeductionsText.Text = "₱" + (grosspay - finalpay).ToString();
+            deduc = grosspay * 0.20 + latefee;
+            finalpay = grosspay - deduc + totOT;
+            DeductionsText.Text = "₱" + deduc.ToString();
             NetPayText.Text = "₱" + finalpay.ToString();
+            otPaytxt.Text = "₱" + totOT.ToString();
+            totallatetxt.Text = "₱" + latefee.ToString();
+            totWeektxt.Text = week.ToString();
+            totlatetxt.Text = lates.ToString();
+            totOTtxt.Text = hours.ToString();
             GenInvoice.Enabled = true;
 
             //(EmployeeNameText.TextLength >= 1 && empidtxt.TextLength >= 1 && WeekChooser.Minimum >= 1 && HoursWorked.Minimum >= 1)
@@ -190,12 +207,7 @@ namespace Payroll
 
         private void ClearButton_Click(object sender, EventArgs e)
         {
-            HoursWorked.Value = 0;
-            DepartmentText.SelectedIndex = 1;
-            EmployeeNameText.Text = "";
-            empidtxt.Text = "";
-            WeekChooser.Value = 0;
-            DatePicker.ResetText();
+            Clear();
         }
 
         public void Clear()
@@ -204,6 +216,13 @@ namespace Payroll
             DepartmentText.SelectedIndex = 1;
             EmployeeNameText.Text = "";
             empidtxt.Text = "";
+            HoursWorked.Value = 0;
+            latechooser.Value = 0;
+            totallatetxt.Text = "";
+            totlatetxt.Text = "";
+            totWeektxt.Text = "";
+            totOTtxt.Text = "";
+            otPaytxt.Text = "";
             WeekChooser.Value = 1;
             DatePicker.ResetText();
             GrossPayText.Text = "";
@@ -263,11 +282,17 @@ namespace Payroll
                                            "Department: " + department,
                                            "\n -------------------- \n",
                                            "Date of Pay: " + date.ToString(),
-                                           "Week Number: " + weeks.ToString(),
-                                           "Hours Worked: " + hours.ToString(),
+                                           "Number of Week(s): " + weeks.ToString(),
+                                           "OverTime Hours Worked: " + hours.ToString() + " Hr(s)",
+                                           "Late: " + totlatetxt.Text + " Minute(s)",
+                                           "\n -------------------- \n",
+                                           "Deductions:",
+                                           "Pag-ibig, SSS, HMO, Etc: 20% of Gross Pay",
+                                           "Late: " + latefee,
+                                           "Total Deductions: " + DeductionsText.Text,
                                            "\n -------------------- \n",
                                            "Gross Pay: " + GrossPayText.Text,
-                                           "Deductions: " + DeductionsText.Text,
+                                           "Overtime Pay: " + otPaytxt.Text,
                                            "Net Pay: " + NetPayText.Text,
                                            "\n ==================== \n",
                                            "This Serves as Official Payslip for " + employeename,

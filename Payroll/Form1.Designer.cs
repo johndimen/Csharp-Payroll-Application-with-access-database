@@ -77,6 +77,21 @@
             this.recordbtn = new System.Windows.Forms.Button();
             this.optionBox = new System.Windows.Forms.GroupBox();
             this.EmptyError1 = new System.Windows.Forms.Label();
+            this.lateLbl = new System.Windows.Forms.Label();
+            this.latechooser = new System.Windows.Forms.NumericUpDown();
+            this.totWeektxt = new System.Windows.Forms.Label();
+            this.totWeek = new System.Windows.Forms.Label();
+            this.otPaytxt = new System.Windows.Forms.Label();
+            this.otPaylbl = new System.Windows.Forms.Label();
+            this.totOTtxt = new System.Windows.Forms.Label();
+            this.totOTlbl = new System.Windows.Forms.Label();
+            this.totallatetxt = new System.Windows.Forms.Label();
+            this.totlatelbl = new System.Windows.Forms.Label();
+            this.totlatetxt = new System.Windows.Forms.Label();
+            this.totlatelabel = new System.Windows.Forms.Label();
+            this.deductionlabel = new System.Windows.Forms.Label();
+            this.otherlbl = new System.Windows.Forms.Label();
+            this.misclbl = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.WeekChooser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HoursWorked)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LogoPictureBox)).BeginInit();
@@ -85,6 +100,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.deptBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.payroll_Dept_DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.departmentBindingSource1)).BeginInit();
+            this.optionBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.latechooser)).BeginInit();
             this.SuspendLayout();
             // 
             // DatePicker
@@ -103,7 +120,7 @@
             0,
             0});
             this.WeekChooser.Name = "WeekChooser";
-            this.WeekChooser.Size = new System.Drawing.Size(135, 20);
+            this.WeekChooser.Size = new System.Drawing.Size(54, 20);
             this.WeekChooser.TabIndex = 5;
             this.WeekChooser.Value = new decimal(new int[] {
             1,
@@ -153,9 +170,9 @@
             this.HoursLabel.AutoSize = true;
             this.HoursLabel.Location = new System.Drawing.Point(14, 254);
             this.HoursLabel.Name = "HoursLabel";
-            this.HoursLabel.Size = new System.Drawing.Size(76, 13);
+            this.HoursLabel.Size = new System.Drawing.Size(59, 13);
             this.HoursLabel.TabIndex = 10;
-            this.HoursLabel.Text = "Hours Worked";
+            this.HoursLabel.Text = "Hours (OT)";
             // 
             // ExitButton
             // 
@@ -169,7 +186,7 @@
             // 
             // ResetButton
             // 
-            this.ResetButton.Location = new System.Drawing.Point(52, 299);
+            this.ResetButton.Location = new System.Drawing.Point(52, 297);
             this.ResetButton.Name = "ResetButton";
             this.ResetButton.Size = new System.Drawing.Size(75, 23);
             this.ResetButton.TabIndex = 13;
@@ -180,7 +197,7 @@
             // GrossPayLabel
             // 
             this.GrossPayLabel.AutoSize = true;
-            this.GrossPayLabel.Location = new System.Drawing.Point(72, 338);
+            this.GrossPayLabel.Location = new System.Drawing.Point(39, 353);
             this.GrossPayLabel.Name = "GrossPayLabel";
             this.GrossPayLabel.Size = new System.Drawing.Size(55, 13);
             this.GrossPayLabel.TabIndex = 14;
@@ -189,16 +206,16 @@
             // DeductionsLabel
             // 
             this.DeductionsLabel.AutoSize = true;
-            this.DeductionsLabel.Location = new System.Drawing.Point(66, 374);
+            this.DeductionsLabel.Location = new System.Drawing.Point(191, 401);
             this.DeductionsLabel.Name = "DeductionsLabel";
-            this.DeductionsLabel.Size = new System.Drawing.Size(61, 13);
+            this.DeductionsLabel.Size = new System.Drawing.Size(88, 13);
             this.DeductionsLabel.TabIndex = 16;
-            this.DeductionsLabel.Text = "Deductions";
+            this.DeductionsLabel.Text = "Total Deductions";
             // 
             // NetPayLabel
             // 
             this.NetPayLabel.AutoSize = true;
-            this.NetPayLabel.Location = new System.Drawing.Point(82, 408);
+            this.NetPayLabel.Location = new System.Drawing.Point(49, 397);
             this.NetPayLabel.Name = "NetPayLabel";
             this.NetPayLabel.Size = new System.Drawing.Size(45, 13);
             this.NetPayLabel.TabIndex = 18;
@@ -206,7 +223,7 @@
             // 
             // CalcButton
             // 
-            this.CalcButton.Location = new System.Drawing.Point(198, 299);
+            this.CalcButton.Location = new System.Drawing.Point(198, 297);
             this.CalcButton.Name = "CalcButton";
             this.CalcButton.Size = new System.Drawing.Size(75, 23);
             this.CalcButton.TabIndex = 20;
@@ -229,7 +246,7 @@
             this.GenInvoice.Name = "GenInvoice";
             this.GenInvoice.Size = new System.Drawing.Size(104, 23);
             this.GenInvoice.TabIndex = 23;
-            this.GenInvoice.Text = "Generate Invoice";
+            this.GenInvoice.Text = "Generate Payslip";
             this.GenInvoice.UseVisualStyleBackColor = true;
             this.GenInvoice.Click += new System.EventHandler(this.GenInvoice_Click);
             // 
@@ -242,7 +259,7 @@
             0,
             0});
             this.HoursWorked.Name = "HoursWorked";
-            this.HoursWorked.Size = new System.Drawing.Size(135, 20);
+            this.HoursWorked.Size = new System.Drawing.Size(54, 20);
             this.HoursWorked.TabIndex = 24;
             this.HoursWorked.Click += new System.EventHandler(this.HoursWorked_Click);
             // 
@@ -300,11 +317,11 @@
             // 
             // InvoicesButton
             // 
-            this.InvoicesButton.Location = new System.Drawing.Point(364, 355);
+            this.InvoicesButton.Location = new System.Drawing.Point(18, 26);
             this.InvoicesButton.Name = "InvoicesButton";
             this.InvoicesButton.Size = new System.Drawing.Size(75, 23);
             this.InvoicesButton.TabIndex = 31;
-            this.InvoicesButton.Text = "Invoices";
+            this.InvoicesButton.Text = "Payslips";
             this.InvoicesButton.UseVisualStyleBackColor = true;
             this.InvoicesButton.Click += new System.EventHandler(this.InvoicesButton_Click);
             // 
@@ -320,7 +337,7 @@
             // 
             // DeptButton
             // 
-            this.DeptButton.Location = new System.Drawing.Point(498, 355);
+            this.DeptButton.Location = new System.Drawing.Point(119, 26);
             this.DeptButton.Name = "DeptButton";
             this.DeptButton.Size = new System.Drawing.Size(75, 23);
             this.DeptButton.TabIndex = 33;
@@ -440,7 +457,7 @@
             // GrossPayText
             // 
             this.GrossPayText.AutoSize = true;
-            this.GrossPayText.Location = new System.Drawing.Point(130, 338);
+            this.GrossPayText.Location = new System.Drawing.Point(97, 353);
             this.GrossPayText.Name = "GrossPayText";
             this.GrossPayText.Size = new System.Drawing.Size(0, 13);
             this.GrossPayText.TabIndex = 41;
@@ -448,7 +465,7 @@
             // DeductionsText
             // 
             this.DeductionsText.AutoSize = true;
-            this.DeductionsText.Location = new System.Drawing.Point(130, 374);
+            this.DeductionsText.Location = new System.Drawing.Point(285, 401);
             this.DeductionsText.Name = "DeductionsText";
             this.DeductionsText.Size = new System.Drawing.Size(0, 13);
             this.DeductionsText.TabIndex = 42;
@@ -456,14 +473,14 @@
             // NetPayText
             // 
             this.NetPayText.AutoSize = true;
-            this.NetPayText.Location = new System.Drawing.Point(130, 408);
+            this.NetPayText.Location = new System.Drawing.Point(97, 397);
             this.NetPayText.Name = "NetPayText";
             this.NetPayText.Size = new System.Drawing.Size(0, 13);
             this.NetPayText.TabIndex = 43;
             // 
             // recordbtn
             // 
-            this.recordbtn.Location = new System.Drawing.Point(498, 384);
+            this.recordbtn.Location = new System.Drawing.Point(119, 55);
             this.recordbtn.Name = "recordbtn";
             this.recordbtn.Size = new System.Drawing.Size(75, 23);
             this.recordbtn.TabIndex = 44;
@@ -473,9 +490,12 @@
             // 
             // optionBox
             // 
-            this.optionBox.Location = new System.Drawing.Point(354, 329);
+            this.optionBox.Controls.Add(this.recordbtn);
+            this.optionBox.Controls.Add(this.DeptButton);
+            this.optionBox.Controls.Add(this.InvoicesButton);
+            this.optionBox.Location = new System.Drawing.Point(408, 329);
             this.optionBox.Name = "optionBox";
-            this.optionBox.Size = new System.Drawing.Size(359, 100);
+            this.optionBox.Size = new System.Drawing.Size(305, 100);
             this.optionBox.TabIndex = 45;
             this.optionBox.TabStop = false;
             this.optionBox.Text = "Options";
@@ -492,12 +512,161 @@
             this.EmptyError1.Text = "There are empty fields";
             this.EmptyError1.Visible = false;
             // 
+            // lateLbl
+            // 
+            this.lateLbl.AutoSize = true;
+            this.lateLbl.Location = new System.Drawing.Point(179, 228);
+            this.lateLbl.Name = "lateLbl";
+            this.lateLbl.Size = new System.Drawing.Size(59, 13);
+            this.lateLbl.TabIndex = 48;
+            this.lateLbl.Text = "Late (Mins)";
+            // 
+            // latechooser
+            // 
+            this.latechooser.Location = new System.Drawing.Point(261, 226);
+            this.latechooser.Maximum = new decimal(new int[] {
+            52,
+            0,
+            0,
+            0});
+            this.latechooser.Name = "latechooser";
+            this.latechooser.Size = new System.Drawing.Size(54, 20);
+            this.latechooser.TabIndex = 47;
+            // 
+            // totWeektxt
+            // 
+            this.totWeektxt.AutoSize = true;
+            this.totWeektxt.Location = new System.Drawing.Point(89, 332);
+            this.totWeektxt.Name = "totWeektxt";
+            this.totWeektxt.Size = new System.Drawing.Size(0, 13);
+            this.totWeektxt.TabIndex = 50;
+            // 
+            // totWeek
+            // 
+            this.totWeek.AutoSize = true;
+            this.totWeek.Location = new System.Drawing.Point(31, 332);
+            this.totWeek.Name = "totWeek";
+            this.totWeek.Size = new System.Drawing.Size(63, 13);
+            this.totWeek.TabIndex = 49;
+            this.totWeek.Text = "Total Week";
+            // 
+            // otPaytxt
+            // 
+            this.otPaytxt.AutoSize = true;
+            this.otPaytxt.Location = new System.Drawing.Point(97, 375);
+            this.otPaytxt.Name = "otPaytxt";
+            this.otPaytxt.Size = new System.Drawing.Size(0, 13);
+            this.otPaytxt.TabIndex = 52;
+            // 
+            // otPaylbl
+            // 
+            this.otPaylbl.AutoSize = true;
+            this.otPaylbl.Location = new System.Drawing.Point(51, 375);
+            this.otPaylbl.Name = "otPaylbl";
+            this.otPaylbl.Size = new System.Drawing.Size(43, 13);
+            this.otPaylbl.TabIndex = 51;
+            this.otPaylbl.Text = "OT Pay";
+            // 
+            // totOTtxt
+            // 
+            this.totOTtxt.AutoSize = true;
+            this.totOTtxt.Location = new System.Drawing.Point(221, 332);
+            this.totOTtxt.Name = "totOTtxt";
+            this.totOTtxt.Size = new System.Drawing.Size(0, 13);
+            this.totOTtxt.TabIndex = 54;
+            // 
+            // totOTlbl
+            // 
+            this.totOTlbl.AutoSize = true;
+            this.totOTlbl.Location = new System.Drawing.Point(166, 332);
+            this.totOTlbl.Name = "totOTlbl";
+            this.totOTlbl.Size = new System.Drawing.Size(49, 13);
+            this.totOTlbl.TabIndex = 53;
+            this.totOTlbl.Text = "Total OT";
+            // 
+            // totallatetxt
+            // 
+            this.totallatetxt.AutoSize = true;
+            this.totallatetxt.Location = new System.Drawing.Point(285, 383);
+            this.totallatetxt.Name = "totallatetxt";
+            this.totallatetxt.Size = new System.Drawing.Size(0, 13);
+            this.totallatetxt.TabIndex = 56;
+            // 
+            // totlatelbl
+            // 
+            this.totlatelbl.AutoSize = true;
+            this.totlatelbl.Location = new System.Drawing.Point(251, 383);
+            this.totlatelbl.Name = "totlatelbl";
+            this.totlatelbl.Size = new System.Drawing.Size(28, 13);
+            this.totlatelbl.TabIndex = 55;
+            this.totlatelbl.Text = "Late";
+            // 
+            // totlatetxt
+            // 
+            this.totlatetxt.AutoSize = true;
+            this.totlatetxt.Location = new System.Drawing.Point(333, 332);
+            this.totlatetxt.Name = "totlatetxt";
+            this.totlatetxt.Size = new System.Drawing.Size(0, 13);
+            this.totlatetxt.TabIndex = 58;
+            // 
+            // totlatelabel
+            // 
+            this.totlatelabel.AutoSize = true;
+            this.totlatelabel.Location = new System.Drawing.Point(275, 332);
+            this.totlatelabel.Name = "totlatelabel";
+            this.totlatelabel.Size = new System.Drawing.Size(55, 13);
+            this.totlatelabel.TabIndex = 57;
+            this.totlatelabel.Text = "Total Late";
+            // 
+            // deductionlabel
+            // 
+            this.deductionlabel.AutoSize = true;
+            this.deductionlabel.BackColor = System.Drawing.SystemColors.Control;
+            this.deductionlabel.ForeColor = System.Drawing.Color.Red;
+            this.deductionlabel.Location = new System.Drawing.Point(243, 348);
+            this.deductionlabel.Name = "deductionlabel";
+            this.deductionlabel.Size = new System.Drawing.Size(64, 13);
+            this.deductionlabel.TabIndex = 59;
+            this.deductionlabel.Text = "Deductions:";
+            // 
+            // otherlbl
+            // 
+            this.otherlbl.AutoSize = true;
+            this.otherlbl.Location = new System.Drawing.Point(285, 365);
+            this.otherlbl.Name = "otherlbl";
+            this.otherlbl.Size = new System.Drawing.Size(87, 13);
+            this.otherlbl.TabIndex = 61;
+            this.otherlbl.Text = "20% of gross pay";
+            // 
+            // misclbl
+            // 
+            this.misclbl.AutoSize = true;
+            this.misclbl.Location = new System.Drawing.Point(182, 365);
+            this.misclbl.Name = "misclbl";
+            this.misclbl.Size = new System.Drawing.Size(97, 13);
+            this.misclbl.TabIndex = 60;
+            this.misclbl.Text = "Pag-ibig, SSS, Etc.";
+            // 
             // Form1
             // 
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(725, 472);
+            this.Controls.Add(this.otherlbl);
+            this.Controls.Add(this.misclbl);
+            this.Controls.Add(this.deductionlabel);
+            this.Controls.Add(this.totlatetxt);
+            this.Controls.Add(this.totlatelabel);
+            this.Controls.Add(this.totallatetxt);
+            this.Controls.Add(this.totlatelbl);
+            this.Controls.Add(this.totOTtxt);
+            this.Controls.Add(this.totOTlbl);
+            this.Controls.Add(this.otPaytxt);
+            this.Controls.Add(this.otPaylbl);
+            this.Controls.Add(this.totWeektxt);
+            this.Controls.Add(this.totWeek);
+            this.Controls.Add(this.lateLbl);
+            this.Controls.Add(this.latechooser);
             this.Controls.Add(this.EmptyError1);
-            this.Controls.Add(this.recordbtn);
             this.Controls.Add(this.NetPayText);
             this.Controls.Add(this.DeductionsText);
             this.Controls.Add(this.GrossPayText);
@@ -506,9 +675,7 @@
             this.Controls.Add(this.empnotxt);
             this.Controls.Add(this.empidtxt);
             this.Controls.Add(this.DepartmentText);
-            this.Controls.Add(this.DeptButton);
             this.Controls.Add(this.MandarinLabel);
-            this.Controls.Add(this.InvoicesButton);
             this.Controls.Add(this.EmptyError);
             this.Controls.Add(this.LogoutButton);
             this.Controls.Add(this.LogoPictureBox);
@@ -548,6 +715,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.deptBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.payroll_Dept_DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.departmentBindingSource1)).EndInit();
+            this.optionBox.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.latechooser)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -601,6 +770,21 @@
         private System.Windows.Forms.Button recordbtn;
         private System.Windows.Forms.GroupBox optionBox;
         private System.Windows.Forms.Label EmptyError1;
+        private System.Windows.Forms.Label lateLbl;
+        private System.Windows.Forms.NumericUpDown latechooser;
+        private System.Windows.Forms.Label totWeektxt;
+        private System.Windows.Forms.Label totWeek;
+        private System.Windows.Forms.Label otPaytxt;
+        private System.Windows.Forms.Label otPaylbl;
+        private System.Windows.Forms.Label totOTtxt;
+        private System.Windows.Forms.Label totOTlbl;
+        private System.Windows.Forms.Label totallatetxt;
+        private System.Windows.Forms.Label totlatelbl;
+        private System.Windows.Forms.Label totlatetxt;
+        private System.Windows.Forms.Label totlatelabel;
+        private System.Windows.Forms.Label deductionlabel;
+        private System.Windows.Forms.Label otherlbl;
+        private System.Windows.Forms.Label misclbl;
     }
 }
 

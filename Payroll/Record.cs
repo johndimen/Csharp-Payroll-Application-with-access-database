@@ -41,10 +41,12 @@ namespace Payroll
 
         private void Empgeneratebtn_Click(object sender, EventArgs e)
         {
+            string date = DateTime.Now.ToString("yyyyMMddHHmmss");
             SaveFileDialog sfd = new SaveFileDialog
             {
+                
                 Filter = "Excel Documents (*.xls)|*.xls",
-                FileName = "export.xls"
+                FileName = "Employee List - " + date
             };
             if (sfd.ShowDialog() == DialogResult.OK)
             {
@@ -111,10 +113,11 @@ namespace Payroll
 
         private void Auditgeneratebtn_Click(object sender, EventArgs e)
         {
+            string date = DateTime.Now.ToString("yyyyMMddHHmmss");
             SaveFileDialog sfd = new SaveFileDialog
             {
                 Filter = "Excel Documents (*.xls)|*.xls",
-                FileName = "export.xls"
+                FileName = "Audit Trail = " + date
             };
             if (sfd.ShowDialog() == DialogResult.OK)
             {
