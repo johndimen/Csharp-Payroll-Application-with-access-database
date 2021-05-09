@@ -29,15 +29,15 @@ namespace Payroll
         }
 
 
-        readonly int Pay = 537;
+        readonly double Pay = 67.125;
         int initialpay;
         int totweekhour;
-        int latefee;
+        double latefee;
         double deduc;
         double OTrate;
         double totOT;
         string directory;
-        int grosspay;
+        double grosspay;
         double finalpay;
         int hours;
         string date;
@@ -79,16 +79,16 @@ namespace Payroll
             EmptyError1.Hide();
             totweekhour = (int)WeekChooser.Value * 40;
             latefee = Pay / 60 * (int)latechooser.Value;
-            OTrate = Pay * 0.25;
-            totOT = OTrate / 60 * hours;
+            OTrate = Pay * 1.25;
+            totOT = OTrate * hours;
             grosspay = Pay * totweekhour;
-            GrossPayText.Text = "₱" + grosspay.ToString();
+            GrossPayText.Text = "₱ " + grosspay.ToString();
             deduc = grosspay * 0.20 + latefee;
             finalpay = grosspay - deduc + totOT;
-            DeductionsText.Text = "₱" + deduc.ToString();
-            NetPayText.Text = "₱" + finalpay.ToString();
-            otPaytxt.Text = "₱" + totOT.ToString();
-            totallatetxt.Text = "₱" + latefee.ToString();
+            DeductionsText.Text = "₱ " + deduc.ToString();
+            NetPayText.Text = "₱ " + finalpay.ToString();
+            otPaytxt.Text = "₱ " + totOT.ToString();
+            totallatetxt.Text = "₱ " + latefee.ToString();
             totWeektxt.Text = week.ToString();
             totlatetxt.Text = lates.ToString();
             totOTtxt.Text = hours.ToString();
